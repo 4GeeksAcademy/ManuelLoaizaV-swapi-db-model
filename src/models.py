@@ -174,43 +174,51 @@ class Manufacturer(Base):
 
 class FilmDirector(Base):
     __tablename__ = "film_director"
-    film_id = Column(Integer, ForeignKey("film.id"), primary_key=True)
-    person_id = Column(Integer, ForeignKey("person.id"), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    film_id = Column(Integer, ForeignKey("film.id"), nullable=False)
+    person_id = Column(Integer, ForeignKey("person.id"), nullable=False)
 
 class FilmProducer(Base):
     __tablename__ = "film_producer"
-    film_id = Column(Integer, ForeignKey("film.id"), primary_key=True)
-    person_id = Column(Integer, ForeignKey("person.id"), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    film_id = Column(Integer, ForeignKey("film.id"), nullable=False)
+    person_id = Column(Integer, ForeignKey("person.id"), nullable=False)
 
 class FilmCharacter(Base):
     __tablename__ = "film_character"
-    film_id = Column(Integer, ForeignKey("film.id"), primary_key=True)
-    character_id = Column(Integer, ForeignKey("character.id"), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    film_id = Column(Integer, ForeignKey("film.id"), nullable=False)
+    character_id = Column(Integer, ForeignKey("character.id"), nullable=False)
 
 class FilmPlanet(Base):
     __tablename__ = "film_planet"
-    film_id = Column(Integer, ForeignKey("film.id"), primary_key=True)
-    planet_id = Column(Integer, ForeignKey("planet.id"), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    film_id = Column(Integer, ForeignKey("film.id"), nullable=False)
+    planet_id = Column(Integer, ForeignKey("planet.id"), nullable=False)
 
 class FilmSpecies(Base):
     __tablename__ = "film_species"
-    film_id = Column(Integer, ForeignKey("film.id"), primary_key=True)
-    species_id = Column(Integer, ForeignKey("species.id"), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    film_id = Column(Integer, ForeignKey("film.id"), nullable=False)
+    species_id = Column(Integer, ForeignKey("species.id"), nullable=False)
 
 class FilmStarship(Base):
     __tablename__ = "film_starship"
-    film_id = Column(Integer, ForeignKey("film.id"), primary_key=True)
-    starship_id = Column(Integer, ForeignKey("starship.id"), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    film_id = Column(Integer, ForeignKey("film.id"), nullable=False)
+    starship_id = Column(Integer, ForeignKey("starship.id"), nullable=False)
 
 class FilmVehicle(Base):
     __tablename__ = "film_vehicle"
-    film_id = Column(Integer, ForeignKey("film.id"), primary_key=True)
-    vehicle_id = Column(Integer, ForeignKey("vehicle.id"), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    film_id = Column(Integer, ForeignKey("film.id"), nullable=False)
+    vehicle_id = Column(Integer, ForeignKey("vehicle.id"), nullable=False)
 
 class Resident(Base):
     __tablename__ = "resident"
-    planet_id = Column(Integer, ForeignKey("planet.id"), primary_key=True)
-    character_id = Column(Integer, ForeignKey("character.id"), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    planet_id = Column(Integer, ForeignKey("planet.id"), nullable=False)
+    character_id = Column(Integer, ForeignKey("character.id"), nullable=False)
 
 class ColorType(enum.Enum):
     EYE = "eye"
@@ -226,38 +234,45 @@ class SpeciesColor(Base):
 
 class SpeciesIndividual(Base):
     __tablename__ = "species_individual"
-    species_id = Column(Integer, ForeignKey("species.id"), primary_key=True)
-    character_id = Column(Integer, ForeignKey("character.id"), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    species_id = Column(Integer, ForeignKey("species.id"), nullable=False)
+    character_id = Column(Integer, ForeignKey("character.id"), nullable=False)
 
 class StarshipPilot(Base):
     __tablename__ = "starship_pilot"
-    starship_id = Column(Integer, ForeignKey("starship.id"), primary_key=True)
-    character_id = Column(Integer, ForeignKey("character.id"), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    starship_id = Column(Integer, ForeignKey("starship.id"), nullable=False)
+    character_id = Column(Integer, ForeignKey("character.id"), nullable=False)
 
 class VehiclePilot(Base):
     __tablename__ = "vehicle_pilot"
-    vehicle_id = Column(Integer, ForeignKey("vehicle.id"), primary_key=True)
-    character_id = Column(Integer, ForeignKey("character.id"), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    vehicle_id = Column(Integer, ForeignKey("vehicle.id"), nullable=False)
+    character_id = Column(Integer, ForeignKey("character.id"), nullable=False)
 
 class StarshipManufacturer(Base):
     __tablename__ = "starship_manufacturer"
-    starship_id = Column(Integer, ForeignKey("starship.id"), primary_key=True)
-    manufacturer_id = Column(Integer, ForeignKey("manufacturer.id"), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    starship_id = Column(Integer, ForeignKey("starship.id"), nullable=False)
+    manufacturer_id = Column(Integer, ForeignKey("manufacturer.id"), nullable=False)
 
 class VehicleManufacturer(Base):
     __tablename__ = "vehicle_manufacturer"
-    vehicle_id = Column(Integer, ForeignKey("vehicle.id"), primary_key=True)
-    manufacturer_id = Column(Integer, ForeignKey("manufacturer.id"), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    vehicle_id = Column(Integer, ForeignKey("vehicle.id"), nullable=False)
+    manufacturer_id = Column(Integer, ForeignKey("manufacturer.id"), nullable=False)
 
 class PlanetClimate(Base):
     __tablename__ = "planet_climate"
-    planet_id = Column(Integer, ForeignKey("planet.id"), primary_key=True)
-    climate_id = Column(Integer, ForeignKey("climate.id"), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    planet_id = Column(Integer, ForeignKey("planet.id"), nullable=False)
+    climate_id = Column(Integer, ForeignKey("climate.id"), nullable=False)
 
 class PlanetTerrain(Base):
     __tablename__ = "planet_terrain"
-    planet_id = Column(Integer, ForeignKey("planet.id"), primary_key=True)
-    terrain_id = Column(Integer, ForeignKey("terrain.id"), primary_key=True)
+    id = Column(Integer, primary_key=True)
+    planet_id = Column(Integer, ForeignKey("planet.id"), nullable=False)
+    terrain_id = Column(Integer, ForeignKey("terrain.id"), nullable=False)
 
 # Draw from SQLAlchemy base
 render_er(Base, 'diagram.png')
