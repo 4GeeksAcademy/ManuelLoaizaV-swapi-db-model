@@ -229,7 +229,7 @@ class SpeciesColor(Base):
     __tablename__ = "species_color"
     id = Column(Integer, primary_key=True)
     species_id = Column(Integer, ForeignKey("species.id"), nullable=False)
-    color_id = Column(Integer, ForeignKey("eye_color.id"), nullable=False)
+    color_id = Column(Integer, ForeignKey("color.id"), nullable=False)
     color_type = Column(Enum(ColorType), nullable=False)
 
 class SpeciesIndividual(Base):
